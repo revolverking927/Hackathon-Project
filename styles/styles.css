@@ -1,0 +1,528 @@
+/* Custom CSS for Jamaica Deals landing page similarity */
+
+/* General Styling and Font */
+
+:root {
+    --primary-green: #38a562;
+    --secondary-green: #2e7d32;
+    --light-yellow: #fff3c9;
+    --off-white: #f5f5ee;
+    --dark-text: #2c2c2c;
+    --light-text: #ffffff;
+    --quote-color: #66bb6a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* A common, clear font similar to the image */
+}
+
+body {
+    background-color: var(--light-text);
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+/* Typography Helpers */
+.headline {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--dark-text);
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+.subtext {
+    font-size: 1.2em;
+    color: var(--dark-text);
+}
+
+/* Button Styles */
+.btn-1, .btn-2 {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+/* Primary Button (Green 'Learn More'/'See Deals') */
+.btn-1 {
+    background-color: var(--primary-green);
+    color: var(--light-text);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-1:hover {
+    background-color: var(--secondary-green);
+}
+
+/* Secondary Button (Blue/Neutral 'View more') - Not directly visible in main image, but styling for consistency */
+.btn-2 {
+    background-color: #5d6d7e; /* A neutral/grayish color */
+    color: var(--light-text);
+}
+
+.btn-2:hover {
+    background-color: #4a5a6a;
+}
+
+/* Layout Utilities */
+.nav-links {
+    list-style: none;
+}
+
+.horizontal {
+    display: flex;
+    gap: 20px;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* --- Navigation Bar (Header) --- */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: var(--light-text);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.logo-wrapper h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--primary-green);
+}
+
+.nav-links li {
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--dark-text);
+}
+
+.nav-links li:hover {
+    color: var(--primary-green);
+}
+
+/* --- Hero Section (The main 'Discover Savings' part) --- */
+.hero-section {
+    text-align: center;
+    padding: 60px 5% 40px;
+}
+
+.hero-section .headline {
+    font-size: 3em;
+    color: var(--secondary-green);
+    margin-bottom: 10px;
+}
+
+.hero-section .subtext {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Simulating the map image */
+.background-wrapper:before {
+    content: '';
+    display: block;
+    width: 100%;
+    max-width: 600px; /* Adjust size of map */
+    height: 200px; /* Adjust height of map */
+    margin: 20px auto 30px;
+    /* This uses a placeholder background, you would replace this with an actual image in a real project */
+    background: url('https://i.imgur.com/G9f3Bf2.png') no-repeat center center; /* Placeholder for Jamaica map */
+    background-size: contain;
+}
+
+
+/* Hide the existing headline, subtext, and role selector in the HTML for the hero section to match the image */
+.hero-section .headline,
+.hero-section .subtext,
+.hero-section .role-selection {
+    display: none;
+}
+
+/* Re-implementing the text shown in the image outside of the map area */
+.hero-section .background-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-section .background-wrapper:before {
+    /* The map image */
+    order: 1;
+}
+
+/* The actual text from the image */
+.hero-section h1.headline:nth-child(1) { /* Assuming this is the 'Discover Savings' text */
+    display: block;
+    font-size: 3em;
+    color: var(--secondary-green);
+    margin-bottom: 10px;
+    order: 0;
+}
+
+.hero-section h3.subtext:nth-child(2) { /* Assuming this is the 'Find trusted brands' text */
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    order: 2;
+}
+
+/* Styling the "Learn More" button which is actually the .btn-1 in the hero section */
+.hero-section .role-selection { /* Need a button visible */
+    display: flex;
+    justify-content: center;
+    order: 3;
+}
+.hero-section .role-selection h5,
+.hero-section .role-options .role-btn:first-child {
+    display: none; /* Hide the role selection text and manufacturer button */
+}
+
+/* Use the consumer button as the main "Learn More" button and rename its text (requires JS for text change or a specific class) */
+.hero-section .role-options .role-btn[title="consumer"] {
+    display: inline-block;
+    /* You might need to change the text content 'consumer' to 'LEARN MORE' in your HTML */
+    font-size: 1em;
+    padding: 15px 40px;
+}
+
+
+/* --- How We Work Section (About) --- */
+.about-section {
+    background-color: var(--off-white);
+    text-align: center;
+    padding: 50px 5%;
+}
+
+.about-section .headline {
+    text-transform: uppercase;
+    color: var(--dark-text);
+    font-size: 1.5em;
+    margin-bottom: 40px;
+}
+
+#about-section-column-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-section .column {
+    flex: 1;
+    max-width: 250px;
+    padding: 30px;
+    background-color: var(--light-text);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 250px; /* Ensure columns are roughly the same size */
+}
+
+.about-section .subtext {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.column-list {
+    text-align: left;
+    padding-left: 20px; /* For bullet points */
+}
+
+/* Custom Icons - Simulating the images in the column headers */
+.about-section .column:nth-child(1):before {
+    content: "\2713"; /* Checkmark icon for Search for Deals */
+    color: var(--primary-green);
+    font-size: 2em;
+    padding: 10px;
+    border: 2px solid var(--light-yellow);
+    border-radius: 50%;
+}
+
+.about-section .column:nth-child(2):before {
+    content: "\1F50D"; /* Magnifying glass icon for Compare Prices */
+    color: var(--primary-green);
+    font-size: 2em;
+    padding: 10px;
+    border: 2px solid var(--light-yellow);
+    border-radius: 50%;
+}
+
+.about-section .column:nth-child(3):before {
+    content: "\1F6D2"; /* Shopping cart icon for Save Money */
+    color: var(--primary-green);
+    font-size: 2em;
+    padding: 10px;
+    border: 2px solid var(--light-yellow);
+    border-radius: 50%;
+}
+
+/* The existing HTML structure for "How We Work" does not perfectly match the *visual* layout of the image. 
+   The image shows three icon/text blocks: "Search for Deals", "Compare Prices", "Save Money".
+   Your HTML has "Manufacturers", "Parish Organization", "Consumers Browse and Save".
+
+   To match the *visual* of the image:
+   1. The 'about-section' should display only the three icon/text blocks from the image.
+   2. I'm using your existing three columns and list items, but using the `::before` pseudo-elements to create the icons and replacing the header text in the column section.
+   3. The main text from the image: "HOW WE WORK" and the three icon/text boxes are what I'm targeting.
+
+   Since your HTML uses `h3` for the text, let's adjust those.
+   The list items are empty, so the icon and the heading is the main focus.
+*/
+
+.about-section .column:nth-child(1) .subtext { content: "Search for Deals"; }
+.about-section .column:nth-child(2) .subtext { content: "Compare Prices"; }
+.about-section .column:nth-child(3) .subtext { content: "Save Money"; }
+.about-section .column h3 {
+    /* Hide the original text and use the icons */
+    display: none;
+}
+.about-section .column-list {
+    /* Also hide the empty lists for this visual match */
+    display: none;
+}
+
+/* The yellow box with the "See Deals" button */
+.featured-section {
+    text-align: center;
+    padding: 50px 5%;
+}
+
+.featured-section .headline {
+    color: var(--dark-text);
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.featured-section .slots-container {
+    background-color: var(--light-yellow);
+    padding: 50px 20px;
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 0 auto 50px;
+    /* Hide the actual deal slots to match the image's "See Deals" box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/* Re-creating the 'SEE DEALS' button structure */
+.featured-section .slots-container:empty:before {
+    content: "SEE DEALS";
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--light-text);
+    background-color: var(--primary-green);
+    padding: 15px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.featured-section .slot,
+.featured-section .slot-info {
+    display: none; /* Hide the detailed deal slots */
+}
+
+
+/* --- Testimonials Section --- */
+.testiomonials-section {
+    text-align: center;
+    padding: 50px 5%;
+}
+
+.testiomonials-section .headline {
+    color: var(--dark-text);
+    margin-bottom: 40px;
+    font-size: 2em;
+}
+
+#testiomonials-section-column-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.testiomonials-section .column {
+    flex: 1;
+    max-width: 300px;
+    padding: 30px;
+    background-color: var(--light-yellow);
+    border-radius: 8px;
+    text-align: left;
+    position: relative;
+    min-height: 150px; /* Gives space for the quote */
+}
+
+/* Big green quote mark */
+.testiomonials-section .column:before {
+    content: "\201C";
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 5em;
+    line-height: 1;
+    color: var(--quote-color);
+    opacity: 0.8;
+}
+
+/* Placeholder content to mimic the text in the image */
+.testiomonials-section .column:nth-child(1) .profile-info:before {
+    content: "Great product, excellent service and prices you can't beat!";
+    font-style: italic;
+    font-size: 1.1em;
+}
+.testiomonials-section .column:nth-child(2) .profile-info:before {
+    content: "I can always find the items I'm seeking and the discounts are real.";
+    font-style: italic;
+    font-size: 1.1em;
+}
+.testiomonials-section .column:nth-child(3) .profile-info:before {
+    content: "Love the site, your boss certainly saves money. Thank you.";
+    font-style: italic;
+    font-size: 1.1em;
+}
+
+.profile-holder {
+    display: none; /* Hide the profile image and name to match the minimalist look of the image */
+}
+
+/* --- Call to Action Section (CTA) --- */
+.cta-section {
+    text-align: center;
+    padding: 50px 5%;
+    background-color: var(--off-white);
+}
+
+.cta-section .background-wrapper {
+    margin-bottom: 30px;
+}
+
+.cta-section .sub-headline {
+    font-size: 1.8em;
+    font-weight: 500;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: var(--dark-text);
+}
+
+.cta-section .role-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cta-section .role-options .btn-1 {
+    min-width: 150px;
+}
+
+/* --- Footer --- */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 5%;
+    background-color: var(--secondary-green);
+    color: var(--light-text);
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer .vertical li {
+    color: var(--light-text);
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.footer .vertical li:hover {
+    text-decoration: underline;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+}
+
+.contact-form input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.contact-form button {
+    background-color: var(--primary-green);
+    color: var(--light-text);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.socials {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    background-color: var(--light-text);
+    border-radius: 50%;
+    /* Placeholder for actual social media icons */
+}
+
+/* Adjustments for responsiveness on smaller screens */
+@media (max-width: 768px) {
+    .headline {
+        font-size: 2em;
+    }
+
+    .hero-section .headline {
+        font-size: 2.5em;
+    }
+
+    #about-section-column-container,
+    #testiomonials-section-column-container,
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-section .column,
+    .testiomonials-section .column {
+        max-width: 90%;
+    }
+
+    .nav-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .horizontal.nav-links {
+        justify-content: center;
+    }
+}
